@@ -7,7 +7,11 @@ const app = express();
 
 dotenv.config() // Load environment variables from .env file
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({
+  origin: 'https://wedding-task32.vercel.app',
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type'],
+}));
 
 const port = process.env.PORT || 4000; // Use .env PORT or default to 4000
 
